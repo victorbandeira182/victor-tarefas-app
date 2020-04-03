@@ -1,0 +1,22 @@
+dist: trusty 
+sudo: false
+language: node_js
+node_js:
+- '10'
+cache:
+  directories:
+  - "./node_modules"
+branches:
+  only:
+  - master
+script:
+- echo "Deploy!!"
+- "./node_modules/.bin/eslint './src/app/*.ts' --fix"
+before_deploy: 
+- npm install
+- ng build --prod
+deploy:
+  provider: firebase
+  token:
+    secure: fc4yV9pBdv8EF6+CodoeDkGmmlFltk5z0F3F8YjsJhOk8sFOOOrVujSgNBfVMPp+WNG+wOJWeemfD/V42bhEW5Haj+oZGETew8IMR0jAKvehDHIkm+1+fQmPFkN+76xGcCAJqebGbt3oYLX7hEpEa2RdyHjlubQ365MwbPBAnmLJ1ZeiAiZYB47MRsVsEYx8WeimzC2iQBw6dfbxiP0I9GOfJTs2tL8qAAVD1L+9B7g5BUKRSnApUo0DZOAUYkgbf69osfgvBEr0XvwXyUFyz+SDCA7CWe/3TBJjYFqhUDQKHia/SSb6pNFThhsjW+e6TLWK8Zmn0+MgVjpipg0dFMPEcPDOst/rVKWADH6lw5SvA4R82Pfzu43THKUpR/r6IZttS9bG53off26CsLaevwTg59v/PAmBa9IF8m5uLkmEzsW7p0ey6sR0xx+eEFMVeWi829gSQUE5i9TD2O3E9f+jPPV08yHI5OAJVmz9vrL8Ki1E0Vp0UfK+vsJZBsLsATuw7FUdrohXud5mzMdsqEHTx3cPzbwONgRTSvXj3u2de+wuqkgscs8SH5vCHAFAnL06VqPlCPBqL3m02IHRdDINEg3PGKooiE3BELfs0QEsBBEQaiR0DFzvevASzGA5SUKVVrGX6DJk+SMCJPIovelIKrv6tQnmAV8ddtjX95A=
+  message: "this is an automatic deployment by travis - CI as a result of pushing to master"

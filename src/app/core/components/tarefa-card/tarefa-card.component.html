@@ -1,0 +1,14 @@
+<div class="card">
+    <mat-card>
+        <mat-card-header>
+    <div mat-card-avatar ></div>
+          <mat-card-title>{{tarefa.titulo}}</mat-card-title>
+          <mat-card-title>{{tarefa.notas}}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-actions>
+          <app-edit-tarefa [tarefa]="tarefa"></app-edit-tarefa>
+          <button (click)="onDelete(tarefa)" style="color:red" mat-button>Deletar</button>
+        </mat-card-actions>
+      </mat-card>
+</div>
