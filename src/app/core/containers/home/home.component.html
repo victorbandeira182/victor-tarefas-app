@@ -1,4 +1,12 @@
-<mat-grid-list rowHeight=400px cols="4"  class="teste">
+<div class="mat-app-background">
+  <mat-toolbar color="primary">
+    <span class="title">Bem vindo ao {{title}}</span>
+    <span class="espaço"></span>
+    <app-add-tarefa></app-add-tarefa>
+  </mat-toolbar>
+</div>
+
+<mat-grid-list rowHeight=400px cols="4">
     <mat-grid-tile *ngFor="let tarefa of tarefas | async" >
     <app-tarefa-card [tarefa]="tarefa"></app-tarefa-card>
     </mat-grid-tile>

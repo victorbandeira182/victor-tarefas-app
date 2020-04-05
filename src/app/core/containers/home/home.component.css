@@ -1,0 +1,12 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.espaço {
+  flex: 1 1 auto;
+}
+.title {
+  text-align: center;
+  padding-left: 40%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

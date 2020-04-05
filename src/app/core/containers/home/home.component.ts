@@ -15,6 +15,7 @@ interface Tarefa {
 })
 export class HomeComponent implements OnInit {
 
+  title = 'victor-app';
   tarefasCollection: AngularFirestoreCollection<Tarefa>;
   tarefas: Observable<Tarefa[]>;
 
