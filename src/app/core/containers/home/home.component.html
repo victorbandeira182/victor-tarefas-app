@@ -7,7 +7,7 @@
 </div>
 
 <mat-grid-list rowHeight=400px cols="4">
-    <mat-grid-tile *ngFor="let tarefa of tarefas | async" >
+  <mat-grid-tile *ngFor="let tarefa of tarefas$ | async">
     <app-tarefa-card [tarefa]="tarefa"></app-tarefa-card>
-    </mat-grid-tile>
-    </mat-grid-list>
+  </mat-grid-tile>
+</mat-grid-list>

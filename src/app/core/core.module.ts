@@ -6,25 +6,30 @@ import {EditTarefaComponent, EditTarefaComponentDialog} from './components/edit-
 import {SharedModule} from '../shared/shared.module';
 import {CoreRoutingModule} from './core-routing.module';
 import {TarefaCardComponent} from './components/tarefa-card/tarefa-card.component';
+import {StoreModule} from '@ngrx/store';
+import {TarefaReducer} from './store/reducer/tarefa.reducer';
 
 
 
 @NgModule({
-  declarations: [AddTarefaDialogComponent,
-    AddTarefaComponent,
-    EditTarefaComponentDialog,
-    EditTarefaComponent,
-    TarefaCardComponent],
-  imports: [
-    CommonModule,
-    SharedModule,
-    CoreRoutingModule
-  ],
-  exports: [
-    TarefaCardComponent,
-    AddTarefaComponent
-  ],
-  entryComponents: [AddTarefaDialogComponent, EditTarefaComponentDialog]
+	declarations: [AddTarefaDialogComponent,
+		AddTarefaComponent,
+		EditTarefaComponentDialog,
+		EditTarefaComponent,
+		TarefaCardComponent],
+	imports: [
+		CommonModule,
+		SharedModule,
+		CoreRoutingModule,
+		StoreModule.forFeature('Tarefa', TarefaReducer),
+
+
+	],
+	exports: [
+		TarefaCardComponent,
+		AddTarefaComponent
+	],
+	entryComponents: [AddTarefaDialogComponent, EditTarefaComponentDialog]
 
 })
 export class CoreModule {

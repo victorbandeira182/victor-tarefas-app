@@ -1,5 +1,5 @@
-.card{
-  background-color: #fafafa;
+.card {
+  background-color:lightgoldenrodyellow;
   color: rgba(0, 0, 0, .87);
   margin-right: 2.5em;
   margin-left: 2.5em;
@@ -8,13 +8,17 @@
 
 
 .notes {
-    display: block;
+  display: block;
 }
 
- mat-card {
-    height: 300px;
-  }
+mat-card {
+  height: 300px;
+}
 
- .test{
-   margin-left: 100px;
- }
+.test {
+  margin-left: 100px;
+}
+
+.card-actions{
+  margin-top:10px
+}

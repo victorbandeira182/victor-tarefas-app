@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 
 interface Tarefa {
   titulo: string;
@@ -17,14 +17,14 @@ export class HomeComponent implements OnInit {
 
   title = 'victor-app';
   tarefasCollection: AngularFirestoreCollection<Tarefa>;
-  tarefas: Observable<Tarefa[]>;
+  tarefas$: Observable<Tarefa[]>;
 
-  constructor( private db: AngularFirestore) {
+  constructor(private db: AngularFirestore) {
   }
 
   ngOnInit() {
     this.tarefasCollection = this.db.collection('/tarefas');
-    this.tarefas = this.tarefasCollection.valueChanges();
+    this.tarefas$ = this.tarefasCollection.valueChanges();
   }
 
 }

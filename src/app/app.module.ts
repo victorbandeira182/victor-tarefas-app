@@ -11,6 +11,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatStepperModule} from '@angular/material/stepper';
 import {SharedModule} from './shared/shared.module';
 import {CoreModule} from './core/core.module';
+import {StoreModule} from '@ngrx/store';
+import {TarefaReducer} from './core/store/reducer/tarefa.reducer';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import {CoreModule} from './core/core.module';
     AngularFirestoreModule,
     MatSnackBarModule,
     MatStepperModule,
-    CoreModule
+    CoreModule,
+    StoreModule.forRoot(TarefaReducer, {}),
+
   ],
   providers: [],
   bootstrap: [AppComponent],

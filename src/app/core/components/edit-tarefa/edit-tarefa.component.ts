@@ -18,7 +18,7 @@ export class EditTarefaComponent {
   constructor(public dialog: MatDialog) {
   }
 
-  openDialog():void {
+  openDialog(): void {
     this.dialog.open(EditTarefaComponentDialog, {
       width: '40%',
       minHeight: '400px',
@@ -37,7 +37,7 @@ export class EditTarefaComponent {
 export class EditTarefaComponentDialog {
   pat = tarefa;
   tarefasCollection: AngularFirestoreCollection<Tarefa>;
-  tarefas: Observable<Tarefa[]>;
+  tarefas$: Observable<Tarefa[]>;
   form;
   checked = false;
 
@@ -48,7 +48,7 @@ export class EditTarefaComponentDialog {
 
   ngOnInit() {
     this.tarefasCollection = this.db.collection('/tarefas');
-    this.tarefas = this.tarefasCollection.valueChanges();
+    this.tarefas$ = this.tarefasCollection.valueChanges();
     this.form = new FormGroup({
       id: new FormControl(),
       titulo: new FormControl('', Validators.compose([

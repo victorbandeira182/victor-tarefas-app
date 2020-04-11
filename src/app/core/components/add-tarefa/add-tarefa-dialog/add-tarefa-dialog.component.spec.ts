@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AddTarefaDialogComponent } from './add-tarefa-dialog.component';
+import {AddTarefaDialogComponent} from './add-tarefa-dialog.component';
 
 describe('AddTarefaDialogComponent', () => {
   let component: AddTarefaDialogComponent;
@@ -8,9 +8,9 @@ describe('AddTarefaDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddTarefaDialogComponent ]
+      declarations: [AddTarefaDialogComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
