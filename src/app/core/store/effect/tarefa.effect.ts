@@ -8,16 +8,16 @@ import {Actions, Effect, ofType} from '@ngrx/effects';
 
 
 import {
-	GetTarefaSuccessAction,
-	GetTarefaFailAction,
+  GetTarefaSuccessAction,
+  GetTarefaFailAction,
 
-	CreateTarefaSuccessAction,
-	CreateTarefaFailAction,
+  CreateTarefaSuccessAction,
+  CreateTarefaFailAction,
 
-	GET_TAREFA,
-	CREATE_TAREFA,
-	UPDATE_TAREFA,
-	DELETE_TAREFA
+  GET_TAREFA,
+  CREATE_TAREFA,
+  UPDATE_TAREFA,
+  DELETE_TAREFA
 
 } from '../actions/tarefa.action';
 
@@ -39,7 +39,7 @@ export class TarefaEffect {
   }
 
 
-	// -------------------------------------------GET----------------------------------------------
+  // -------------------------------------------GET----------------------------------------------
 
 
 }

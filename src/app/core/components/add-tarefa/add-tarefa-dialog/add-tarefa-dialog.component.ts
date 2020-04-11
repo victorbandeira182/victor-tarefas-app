@@ -6,13 +6,12 @@ import {Observable} from 'rxjs';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 
 
-
 @Component({
-	selector: 'app-add-tarefa-dialog',
-	templateUrl: './add-tarefa-dialog.component.html',
-	styleUrls: ['./add-tarefa-dialog.component.css']
+  selector: 'app-add-tarefa-dialog',
+  templateUrl: './add-tarefa-dialog.component.html',
+  styleUrls: ['./add-tarefa-dialog.component.css']
 })
-export class AddTarefaDialogComponent implements OnInit{
+export class AddTarefaDialogComponent implements OnInit {
   tarefasCollection: AngularFirestoreCollection<Tarefa>;
   tarefas$: Observable<Tarefa[]>;
 
@@ -21,15 +20,15 @@ export class AddTarefaDialogComponent implements OnInit{
   checked = false;
 
   ngOnInit() {
-  	this.tarefasCollection = this.db.collection('/tarefas');
-  	this.tarefas$ = this.tarefasCollection.valueChanges();
+    this.tarefasCollection = this.db.collection('/tarefas');
+    this.tarefas$ = this.tarefasCollection.valueChanges();
 
-  	this.form = new FormGroup({
-  		titulo: new FormControl('', Validators.compose([Validators.required,
-  			Validators.pattern('[\\w\\-\\s\\/]+')])),
-  		notas: new FormControl('', Validators.compose([Validators.required,
-  			Validators.pattern('[\\w\\-\\s\\/]+')])),
-  	});
+    this.form = new FormGroup({
+      titulo: new FormControl('', Validators.compose([Validators.required,
+        Validators.pattern('[\\w\\-\\s\\/]+')])),
+      notas: new FormControl('', Validators.compose([Validators.required,
+        Validators.pattern('[\\w\\-\\s\\/]+')])),
+    });
   }
 
   constructor(private db: AngularFirestore,
@@ -38,11 +37,11 @@ export class AddTarefaDialogComponent implements OnInit{
   }
 
   onNoClick(): void {
-  	this.dialogRef.close();
+    this.dialogRef.close();
   }
 
   onSubmit(tarefa) {
-  	this.tarefasCollection.add(tarefa);
+    this.tarefasCollection.add(tarefa);
   }
 
 }

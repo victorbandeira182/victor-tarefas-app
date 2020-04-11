@@ -7,9 +7,9 @@ export interface TarefaState {
 }
 
 export const initializeState = (): TarefaState => {
-	return ({
-		Loading: false,
-		Loaded: true,
-		TarefaList: [],
-	});
+  return ({
+    Loading: false,
+    Loaded: true,
+    TarefaList: [],
+  });
 };

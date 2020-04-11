@@ -1,5 +1,5 @@
 .card {
-  background-color:lightgoldenrodyellow;
+  background-color: lightgoldenrodyellow;
   color: rgba(0, 0, 0, .87);
   margin-right: 2.5em;
   margin-left: 2.5em;
@@ -19,6 +19,6 @@ mat-card {
   margin-left: 100px;
 }
 
-.card-actions{
-  margin-top:10px
+.card-actions {
+  margin-top: 10px
 }
