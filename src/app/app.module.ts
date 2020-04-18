@@ -32,7 +32,7 @@ import {TarefaReducer} from './core/store/reducer/tarefa.reducer';
     MatSnackBarModule,
     MatStepperModule,
     CoreModule,
-    StoreModule.forRoot(TarefaReducer, {}),
+    StoreModule.forRoot([], {}),
 
   ],
   providers: [],

@@ -1,15 +1,7 @@
 import {Tarefa} from '../../components/add-tarefa/Tarefa';
+import {TarefaState} from '../reducer/tarefa.reducer';
 
-export interface TarefaState {
-  Loading: boolean;
-  Loaded: boolean;
-  TarefaList: Tarefa[];
-}
 
-export const initializeState = (): TarefaState => {
-  return ({
-    Loading: false,
-    Loaded: true,
-    TarefaList: [],
-  });
-};
+
+
+export const tarefasState = (state: TarefaState) => state.feature;

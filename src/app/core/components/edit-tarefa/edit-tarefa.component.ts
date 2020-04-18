@@ -8,9 +8,9 @@ import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firest
 let tarefa: Tarefa;
 
 @Component({
-  selector: 'app-edit-tarefa',
-  templateUrl: './edit-tarefa.component.html',
-  styleUrls: ['./edit-tarefa.component.css']
+	selector: 'app-edit-tarefa',
+	templateUrl: './edit-tarefa.component.html',
+	styleUrls: ['./edit-tarefa.component.css']
 })
 export class EditTarefaComponent {
   @Input() tarefa: Tarefa;
@@ -19,20 +19,20 @@ export class EditTarefaComponent {
   }
 
   openDialog(): void {
-    this.dialog.open(EditTarefaComponentDialog, {
-      width: '40%',
-      minHeight: '400px',
-    });
+  	this.dialog.open(EditTarefaComponentDialog, {
+  		width: '40%',
+  		minHeight: '400px',
+  	});
   }
 
   saveSender(t) {
-    tarefa = t;
+  	tarefa = t;
   }
 }
 
 @Component({
-  selector: 'edit-add-tarefa-dialog',
-  templateUrl: './edit-tarefa-dialog.component.html',
+	selector: 'edit-add-tarefa-dialog',
+	templateUrl: './edit-tarefa-dialog.component.html',
 })
 export class EditTarefaComponentDialog {
   pat = tarefa;
@@ -47,43 +47,43 @@ export class EditTarefaComponentDialog {
   }
 
   ngOnInit() {
-    this.tarefasCollection = this.db.collection('/tarefas');
-    this.tarefas$ = this.tarefasCollection.valueChanges();
-    this.form = new FormGroup({
-      id: new FormControl(),
-      titulo: new FormControl('', Validators.compose([
-        Validators.pattern('[\\w\\-\\s\\/]+')])),
-      notas: new FormControl('', Validators.compose([
-        Validators.pattern('[\\w\\-\\s\\/]+')])),
-    });
+  	this.tarefasCollection = this.db.collection('/tarefas');
+  	this.tarefas$ = this.tarefasCollection.valueChanges();
+  	this.form = new FormGroup({
+  		id: new FormControl(),
+  		titulo: new FormControl('', Validators.compose([
+  			Validators.pattern('[\\w\\-\\s\\/]+')])),
+  		notas: new FormControl('', Validators.compose([
+  			Validators.pattern('[\\w\\-\\s\\/]+')])),
+  	});
   }
 
   onNoClick(): void {
-    this.dialogRef.close();
+  	this.dialogRef.close();
   }
 
   onEdit(newValue) {
-    this.db.collection('/tarefas')
-      .get()
-      .subscribe((snapshot) => {
-        snapshot.forEach(doc => {
-          if (tarefa.titulo === doc.data().titulo && tarefa.notas === doc.data().notas) {
-            this.editTarefa(doc, newValue);
-          }
-        });
-      });
+  	this.db.collection('/tarefas')
+  		.get()
+  		.subscribe((snapshot) => {
+  			snapshot.forEach(doc => {
+  				if (tarefa.titulo === doc.data().titulo && tarefa.notas === doc.data().notas) {
+  					this.editTarefa(doc, newValue);
+  				}
+  			});
+  		});
   }
 
   editTarefa(oldValue, newValue) {
-    let newNote = tarefa.notas + ' New Edit: \n' + newValue.notas;
-    this.db.collection('/tarefas').doc(oldValue.id).set({
-      titulo: newValue.titulo,
-      notas: newValue.notas,
-    }).then(function() {
-      console.log('Document successfully written!');
-    })
-      .catch(function(error) {
-        console.error('Error writing document: ', error);
-      });
+  	let newNote = tarefa.notas + ' New Edit: \n' + newValue.notas;
+  	this.db.collection('/tarefas').doc(oldValue.id).set({
+  		titulo: newValue.titulo,
+  		notas: newValue.notas,
+  	}).then(function() {
+  		console.log('Document successfully written!');
+  	})
+  		.catch(function(error) {
+  			console.error('Error writing document: ', error);
+  		});
   }
 }

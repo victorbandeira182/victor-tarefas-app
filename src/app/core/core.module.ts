@@ -8,6 +8,9 @@ import {CoreRoutingModule} from './core-routing.module';
 import {TarefaCardComponent} from './components/tarefa-card/tarefa-card.component';
 import {StoreModule} from '@ngrx/store';
 import {TarefaReducer} from './store/reducer/tarefa.reducer';
+import {globalReducer} from './store/reducer/global.reducer';
+import {EffectsModule} from '@ngrx/effects';
+import {TarefaEffect} from './store/effect/tarefa.effect';
 
 
 
@@ -21,7 +24,8 @@ import {TarefaReducer} from './store/reducer/tarefa.reducer';
 		CommonModule,
 		SharedModule,
 		CoreRoutingModule,
-		StoreModule.forFeature('Tarefa', TarefaReducer),
+		StoreModule.forFeature('core', globalReducer),
+    EffectsModule.forFeature([TarefaEffect])
 
 
 	],
